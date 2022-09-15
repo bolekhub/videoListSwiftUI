@@ -7,30 +7,49 @@
 
 import XCTest
 @testable import VideClub
+import ModelLibrary
 
 class VideClubTests: XCTestCase {
+    let jsonDecoder = JSONDecoder()
+    var testData: Data?
+    var testDataIncomplete: Data?
+    let httpURL = "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
 
+    
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        let urlcomplete = Bundle.main.url(forResource: "response", withExtension: "json")
+        let urlIncomplete = Bundle.main.url(forResource: "response_incomplete", withExtension: "json")
+        testData = try! Data(contentsOf: urlcomplete!)
+        testDataIncomplete = try! Data(contentsOf: urlIncomplete!)
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func testDecoder_catalog_response_decoding() {
+        guard let jsonData = self.testData else { return }
+        let object = try! jsonDecoder.decode(Catalog.self, from: jsonData)
+        XCTAssertNotNil(object)
+    }
+    
+    func testDecoder_catalog_response_decoding_categories_count() {
+        guard let jsonData = self.testData else { return }
+        let object = try! jsonDecoder.decode(Catalog.self, from: jsonData)
+        XCTAssertEqual(object.categories.count, 1)
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testDecoder_catalog_response_decoding_category_first_videos_count() {
+        guard let jsonData = self.testData else { return }
+        let object = try! jsonDecoder.decode(Catalog.self, from: jsonData)
+        XCTAssertEqual(object.categories.first?.videos.count, 13)
     }
-
+    
+    func testDecoder_incomplete_decoding_success() {
+        guard let jsonData = self.testDataIncomplete else { return }
+        let object = try! jsonDecoder.decode(Catalog.self, from: jsonData)
+        XCTAssertNotNil(object)
+    }
+    
+    
 }

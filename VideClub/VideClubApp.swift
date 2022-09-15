@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-
 @main
 struct VideClubApp: App {
     var body: some Scene {

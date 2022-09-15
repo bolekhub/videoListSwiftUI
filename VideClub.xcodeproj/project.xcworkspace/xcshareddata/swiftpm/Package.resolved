@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "ModelLibrary",
+        "repositoryURL": "https://github.com/bolekhub/mymodel",
+        "state": {
+          "branch": "main",
+          "revision": "fcbffacfcc915076c220c20eca792053a6747fd3",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
