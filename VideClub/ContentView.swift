@@ -17,7 +17,7 @@ struct ContentView: View {
     }
     
     var body: some View {
-        Text(contentViewModel.stateText ?? "" )
+        Text(contentViewModel.stateText)
         NavigationView {
             List {
                 ForEach(contentViewModel.videos) { videoItem in

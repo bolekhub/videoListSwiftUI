@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0731910B28E453CD00D8FD78 /* ModelLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 0731910A28E453CD00D8FD78 /* ModelLibrary */; };
 		0741493B28C0F6520091D737 /* VideClubApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0741493A28C0F6520091D737 /* VideClubApp.swift */; };
 		0741493D28C0F6520091D737 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0741493C28C0F6520091D737 /* ContentView.swift */; };
 		0741493F28C0F6550091D737 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0741493E28C0F6550091D737 /* Assets.xcassets */; };
@@ -14,7 +15,6 @@
 		0741494C28C0F6550091D737 /* VideClubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0741494B28C0F6550091D737 /* VideClubTests.swift */; };
 		0741495628C0F6550091D737 /* VideClubUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0741495528C0F6550091D737 /* VideClubUITests.swift */; };
 		0741495828C0F6550091D737 /* VideClubUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0741495728C0F6550091D737 /* VideClubUITestsLaunchTests.swift */; };
-		0741496628C0F9CB0091D737 /* VideoSourceItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0741496528C0F9CB0091D737 /* VideoSourceItem.swift */; };
 		0741496828C0FB910091D737 /* response.json in Resources */ = {isa = PBXBuildFile; fileRef = 0741496728C0FB910091D737 /* response.json */; };
 		0741496928C1069E0091D737 /* response.json in Resources */ = {isa = PBXBuildFile; fileRef = 0741496728C0FB910091D737 /* response.json */; };
 		0741496B28C138D40091D737 /* response_incomplete.json in Resources */ = {isa = PBXBuildFile; fileRef = 0741496A28C138D40091D737 /* response_incomplete.json */; };
@@ -24,7 +24,6 @@
 		074149AB28C8955F0091D737 /* GridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074149AA28C8955F0091D737 /* GridCell.swift */; };
 		074149AD28C895B50091D737 /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 074149AC28C895B50091D737 /* VideoView.swift */; };
 		077638FD28CA69BE00DA2498 /* VideoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 077638FC28CA69BE00DA2498 /* VideoItem.swift */; };
-		0776390028CA8A8100DA2498 /* ModelLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 077638FF28CA8A8100DA2498 /* ModelLibrary */; };
 		0776390228CA8CB800DA2498 /* Catalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0776390128CA8CB800DA2498 /* Catalog.swift */; };
 		0776390428CA8CC400DA2498 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0776390328CA8CC400DA2498 /* Category.swift */; };
 		0776390528CA8D2700DA2498 /* Catalog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0776390128CA8CB800DA2498 /* Catalog.swift */; };
@@ -84,7 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0776390028CA8A8100DA2498 /* ModelLibrary in Frameworks */,
+				0731910B28E453CD00D8FD78 /* ModelLibrary in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,7 +254,7 @@
 			);
 			name = VideClub;
 			packageProductDependencies = (
-				077638FF28CA8A8100DA2498 /* ModelLibrary */,
+				0731910A28E453CD00D8FD78 /* ModelLibrary */,
 			);
 			productName = VideClub;
 			productReference = 0741493728C0F6520091D737 /* VideClub.app */;
@@ -369,10 +368,11 @@
 			knownRegions = (
 				en,
 				Base,
+				es,
 			);
 			mainGroup = 0741492E28C0F6520091D737;
 			packageReferences = (
-				077638FE28CA8A8100DA2498 /* XCRemoteSwiftPackageReference "mymodel" */,
+				0731910928E453CD00D8FD78 /* XCRemoteSwiftPackageReference "mymodel" */,
 			);
 			productRefGroup = 0741493828C0F6520091D737 /* Products */;
 			projectDirPath = "";
@@ -445,7 +445,6 @@
 				0741493B28C0F6520091D737 /* VideClubApp.swift in Sources */,
 				0741496F28C13F970091D737 /* NetworkService.swift in Sources */,
 				0741497228C14CC20091D737 /* CatalogViewModel.swift in Sources */,
-				0741496628C0F9CB0091D737 /* VideoSourceItem.swift in Sources */,
 				074149AB28C8955F0091D737 /* GridCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -622,7 +621,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"VideClub/Preview Content\"";
 				DEVELOPMENT_TEAM = VVU2BQZ6F9;
@@ -641,6 +641,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bcf.VideClub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "WildCard-Development";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -652,7 +653,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"VideClub/Preview Content\"";
 				DEVELOPMENT_TEAM = VVU2BQZ6F9;
@@ -671,6 +673,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.bcf.VideClub;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -889,20 +892,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		077638FE28CA8A8100DA2498 /* XCRemoteSwiftPackageReference "mymodel" */ = {
+		0731910928E453CD00D8FD78 /* XCRemoteSwiftPackageReference "mymodel" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/bolekhub/mymodel";
 			requirement = {
-				branch = main;
+				branch = develop;
 				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		077638FF28CA8A8100DA2498 /* ModelLibrary */ = {
+		0731910A28E453CD00D8FD78 /* ModelLibrary */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 077638FE28CA8A8100DA2498 /* XCRemoteSwiftPackageReference "mymodel" */;
+			package = 0731910928E453CD00D8FD78 /* XCRemoteSwiftPackageReference "mymodel" */;
 			productName = ModelLibrary;
 		};
 /* End XCSwiftPackageProductDependency section */

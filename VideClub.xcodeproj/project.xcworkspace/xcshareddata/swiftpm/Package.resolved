@@ -5,8 +5,8 @@
         "package": "ModelLibrary",
         "repositoryURL": "https://github.com/bolekhub/mymodel",
         "state": {
-          "branch": "main",
-          "revision": "fcbffacfcc915076c220c20eca792053a6747fd3",
+          "branch": "develop",
+          "revision": "3832cec9ddf5852f09d318b96fb4f8fdf33dbc66",
           "version": null
         }
       }

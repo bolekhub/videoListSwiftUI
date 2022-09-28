@@ -4,9 +4,9 @@
 //
 //  Created by Boris Chirino on 1/9/22.
 //
-
+/*
 import XCTest
-@testable import VideClub
+@testable import VideoClub
 import ModelLibrary
 
 class VideClubTests: XCTestCase {
@@ -53,3 +53,4 @@ class VideClubTests: XCTestCase {
     
     
 }
+*/

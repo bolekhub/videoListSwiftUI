@@ -11,23 +11,34 @@ import ModelLibrary
 
 final class CatalogViewModel: ObservableObject {
     enum ViewModelState {
-        case loading, ready, fail, idle
+        case loading, ready(Int), fail, idle
     }
     private var subscriptions = Set<AnyCancellable>()
     private lazy var api: HTTPClient = {
        return HTTPClient()
     }()
     
-    @Published var stateText: String?
-    @Published var videos: [VideoItem] = [VideoItem]() {
-        didSet {
-            state = videos.count > 0 ? .ready : .fail
-        }
-    }
-    @Published var state: ViewModelState = .idle {
-        didSet {
-            loadingStateChange(state)
-        }
+    @Published var stateText: String = ""
+    @Published var videos: [VideoItem] = [VideoItem]()
+    @Published var state: ViewModelState = .idle
+    
+    init() {
+        $videos.sink { [weak self] items in
+            self?.state = items.count > 0 ? .ready(items.count) : .fail
+        }.store(in: &subscriptions)
+        
+        $state.sink { [weak self] st in
+            switch st {
+            case .loading:
+                self?.stateText = "Loading data ..."
+            case let .ready(videosCount):
+                self?.stateText = "\(videosCount) Videos"
+            case .fail:
+                self?.stateText = "Ohhhps something went wrong."
+            case .idle:
+                self?.stateText = ""
+            }
+        }.store(in: &subscriptions)
     }
 
     func fetchList() {
