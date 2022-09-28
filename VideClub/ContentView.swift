@@ -10,24 +10,23 @@ import Combine
 import ModelLibrary
 
 struct ContentView: View {
-    @ObservedObject private var contentViewModel: CatalogViewModel = CatalogViewModel()
+    @StateObject private var contentViewModel: CatalogViewModel = CatalogViewModel()
     
     init() {
-        contentViewModel.fetchList()
+        //contentViewModel.fetchList()
     }
     
     var body: some View {
-        Text(contentViewModel.stateText)
-        NavigationView {
-            List {
-                ForEach(contentViewModel.videos) { videoItem in
-                    GridCell(videoItem: videoItem)
+        VStack {
+            Text(contentViewModel.stateText)
+            NavigationView {
+                List(contentViewModel.videos) { item in
                     NavigationLink {
-                        VideoView(videoItem: videoItem)
+                        VideoView(videoItem: item)
                     } label: {
-                        Text(videoItem.subtitle)
-                    }.navigationTitle("Videos")
-                }
+                        GridCell(videoItem: item)
+                    }
+                }.navigationTitle("Videos")
             }
         }
     }
@@ -35,9 +34,7 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        Group {
         ContentView()
-            .environment(\.colorScheme, .dark)
-        }
+            //.environment(\.colorScheme, .dark)
     }
 }

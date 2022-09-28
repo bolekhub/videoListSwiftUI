@@ -39,6 +39,7 @@ final class CatalogViewModel: ObservableObject {
                 self?.stateText = ""
             }
         }.store(in: &subscriptions)
+        fetchList()
     }
 
     func fetchList() {

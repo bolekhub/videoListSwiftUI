@@ -14,15 +14,22 @@ struct VideoView: View, ShapeStyle {
 
     var body: some View {
         VStack {
-            Text(videoItem.title)
-                .font(.headline)
-                .padding(.top)
             VideoPlayer(player: AVPlayer(url:  URL(string: videoItem.sources.first!)!)) {
             }
             .scenePadding()
             Text(videoItem.description)
                 .font(.caption)
                 .padding()
-        }.border(self, width: 4.0)
+        }
+        .border(self, width: 4.0)
+        .navigationBarTitle(videoItem.title)
+        .navigationBarTitleDisplayMode(.inline)
+    }
+}
+
+struct VideoView_Previews: PreviewProvider {
+    static var previews: some View {
+         let item = VideoItemTest()
+        VideoView(videoItem: item)
     }
 }
