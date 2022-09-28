@@ -11,7 +11,7 @@ struct GridCell: View, ShapeStyle {
   var videoItem: VideoSourceItemRepresentable
     
   var body: some View {
-      VStack {
+      //VStack {
           HStack(alignment: .center) {
               AsyncImage(url: URL(string: videoItem.thumbnail) ) { image in
                   image.resizable()
@@ -37,7 +37,7 @@ struct GridCell: View, ShapeStyle {
               
           }.frame(width: 300, height: 150, alignment: .leading)
       
-      }
+      //}
   }
 }
 

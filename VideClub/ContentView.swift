@@ -10,17 +10,13 @@ import Combine
 import ModelLibrary
 
 struct ContentView: View {
-    @StateObject private var contentViewModel: CatalogViewModel = CatalogViewModel()
-    
-    init() {
-        //contentViewModel.fetchList()
-    }
+    @StateObject private var viewModel: CatalogViewModel = CatalogViewModel()
     
     var body: some View {
         VStack {
-            Text(contentViewModel.stateText)
+            Text(viewModel.stateText)
             NavigationView {
-                List(contentViewModel.videos) { item in
+                List(viewModel.videos) { item in
                     NavigationLink {
                         VideoView(videoItem: item)
                     } label: {
@@ -28,6 +24,8 @@ struct ContentView: View {
                     }
                 }.navigationTitle("Videos")
             }
+        }.onAppear {
+            viewModel.fetchList()
         }
     }
 }

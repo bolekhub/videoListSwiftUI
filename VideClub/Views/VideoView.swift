@@ -23,7 +23,7 @@ struct VideoView: View, ShapeStyle {
         }
         .border(self, width: 4.0)
         .navigationBarTitle(videoItem.title)
-        .navigationBarTitleDisplayMode(.inline)
+        //.navigationBarTitleDisplayMode(.inline)
     }
 }
 

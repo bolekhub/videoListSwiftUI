@@ -11,7 +11,10 @@ import ModelLibrary
 
 final class CatalogViewModel: ObservableObject {
     enum ViewModelState {
-        case loading, ready(Int), fail, idle
+        case loading,
+             ready(Int),
+             fail,
+             idle
     }
     private var subscriptions = Set<AnyCancellable>()
     private lazy var api: HTTPClient = {
@@ -39,7 +42,7 @@ final class CatalogViewModel: ObservableObject {
                 self?.stateText = ""
             }
         }.store(in: &subscriptions)
-        fetchList()
+        //fetchList()
     }
 
     func fetchList() {
